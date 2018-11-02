@@ -2,6 +2,7 @@ var mysql = require("mysql");
 var dotenv = require("dotenv");
 var inquirer = require('inquirer');
 const cTable = require('console.table');
+var clear = require('clear');
 dotenv.config();
 
 var connection = mysql.createConnection({
@@ -20,17 +21,16 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
  //attempt to take their order
   takeOrder();
-
 });
 
 //function to place orders 
 //ASSUMES an active db connection
 function takeOrder() {
- //start by displaying the current stock list to the user 
+ //start by clearing the screen and displaying the current stock list to the user 
  //NOTE: we don't show any items that are out of stock
+ clear();
  var query = "SELECT products.item_id, products.product_name, departments.department_name, products.price, products.stock_quantity FROM products JOIN departments ON products.department_id = departments.department_id WHERE stock_quantity > 0 ORDER BY item_id ASC;"
  connection.query(query,function(error,results){
    if(error) throw error;
