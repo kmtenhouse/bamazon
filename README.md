@@ -27,21 +27,34 @@ Customers are able to place orders for BAM!azon products using the bamazonCustom
 Managers are the storekeepers who keep track of inventory and replenishment for all goods in a BAM!azon store. They also have the ability to add brand new products to their wares.
 
 1. **View Products For Sale**
+
 View all products carried in their store, whether in stock or not. 
+![alt text](mgr-viewallproducts.gif "View all products")
 
 2. **Viw Low Inventory**
+
 View all products with current stock less than 5 units on hand. 
+![alt text](mgr-viewlowinventory.gif "View low inventory products")
 
 3. **Add To Inventory**
+
 When a manager receives additional units of an item, they may use this feature to record that an item is back in stock. They enter the item id of the product in question, as well as how much stock to add.
+![alt text](mgr-addinventory.gif "Add inventory")
 
 4. **Add New Product**
+
 If a manager receives a brand new product to put on their shelves, they can record important attributes and put it for sale via BAM!azon in a few easy steps. 
+![alt text](mgr-addproduct.gif "Add inventory")
 
 ## Supervisor
 Supervisors are one level above managers and have additional access to sales information across the entire business. They are able to view net sales and profit by category, as well as define new categories.
+
 1. **View All Departments**
+
 Displays the department name, id, overhead cost, total product sales, and net profits for each department.
+![alt text](sv-viewdept.gif "View all departments")
 
 2. **Add a New Department**
+
 Allows the supervisor to create a brand new department by asking for a department name and projected overhead cost.
+![alt text](sv-adddept.gif "Add department")

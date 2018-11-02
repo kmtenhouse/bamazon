@@ -109,7 +109,7 @@ function addDepartment() {
         //then update the database with the new department's name and overhead costs!
         connection.query("INSERT INTO departments (department_name, over_head_costs) VALUES(?, ?)", [answer.deptName, answer.overhead] ,function(error, result) {
             if(error) throw error;
-            if(result.changedRows) {
+            if(result.insertId) {
                 console.log("Department added!");
             }
             else {
@@ -127,7 +127,6 @@ function addDepartment() {
 function isPositiveInteger(num) {
     //an item id or stock quantity is valid if it's a positive, non-zero integer
     var numToTest = Number(num); //cast the input string to a number, since sometimes we get strings
-    console.log(numToTest);
     if(isNaN(numToTest)) { //if the number could not be cast, it's not valid
         return false;
     }
@@ -142,7 +141,6 @@ function isPositiveInteger(num) {
 function isValidPrice(num) {
     //an item id or stock quantity is valid if it's a positive, non-zero integer
     var numToTest = Number(num); //cast the input string to a number, since sometimes we get strings
-    console.log(numToTest);
     if(isNaN(numToTest)) { //if the number could not be cast, it's not valid
         return false;
     }

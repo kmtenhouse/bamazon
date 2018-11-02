@@ -2,6 +2,7 @@ var mysql = require("mysql");
 var dotenv = require("dotenv");
 var inquirer = require('inquirer');
 const cTable = require('console.table');
+var clear = require('clear');
 dotenv.config();
 
 var connection = mysql.createConnection({
@@ -20,7 +21,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
  //show the manager functions!
     managerMenu();
 });
@@ -77,6 +77,7 @@ function managerMenu() {
 }
 
 function addNewProduct() {
+    clear();
     //first, run a query to grab the department info (so that we can only add items to departments that our Bamazon Supervisors have provided)
     connection.query("SELECT department_id, department_name FROM departments", function(error, results) {
         if(results.length===0) {
@@ -158,6 +159,7 @@ function addNewProduct() {
 
 //function to see all the products that exist (whether they are in stock or not)
 function viewAllProducts() {
+    clear();
     connection.query("SELECT products.item_id, products.product_name, departments.department_name, products.price, products.stock_quantity FROM products JOIN departments ON departments.department_id = products.department_id", function(error, result) {
         if(error) throw error; //if an error occurs, show the error
         console.log("All Products:\n") //otherwise, show a header,
@@ -169,6 +171,7 @@ function viewAllProducts() {
 
 //function to quick review items which have low stock (<5 on hand)
 function viewLowInventory() {
+    clear();
     connection.query("SELECT products.item_id, products.product_name, departments.department_name, products.price, products.stock_quantity FROM products JOIN departments ON departments.department_id = products.department_id WHERE stock_quantity < 5 ORDER BY stock_quantity DESC", function(error, result) {
         if(error) throw error;
         if(result.length===0) { //if we didn't get any results back, it means that we're fully stocked!
@@ -185,6 +188,7 @@ function viewLowInventory() {
 }
 
 function addInventory() {
+    clear();
     //first, display all the products as a reminder
      connection.query("SELECT products.item_id, products.product_name, departments.department_name, products.price, products.stock_quantity FROM products JOIN departments ON departments.department_id = products.department_id ORDER BY stock_quantity ASC;", function(error, result) {
         if(error) throw error;
