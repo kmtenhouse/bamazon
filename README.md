@@ -44,7 +44,7 @@ When a manager receives additional units of an item, they may use this feature t
 4. **Add New Product**
 
 If a manager receives a brand new product to put on their shelves, they can record important attributes and put it for sale via BAM!azon in a few easy steps. 
-![alt text](mgr-addproduct.gif "Add inventory")
+![alt text](mgr-add-product.gif "Add inventory")
 
 ## Supervisor
 Supervisors are one level above managers and have additional access to sales information across the entire business. They are able to view net sales and profit by category, as well as define new categories.
