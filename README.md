@@ -58,3 +58,7 @@ Displays the department name, id, overhead cost, total product sales, and net pr
 
 Allows the supervisor to create a brand new department by asking for a department name and projected overhead cost.
 ![alt text](sv-adddept.gif "Add department")
+
+**Future Features**
+* Refactoring to include an ORM (Sequelize) 
+* Turn into an API for use with gaming!
